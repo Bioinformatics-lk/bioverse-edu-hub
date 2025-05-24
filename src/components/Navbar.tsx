@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Home, Book, News, Users, User } from 'lucide-react';
+import { Home, Book, Newspaper, Users, User } from 'lucide-react';
 
 const Navbar = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -44,7 +44,7 @@ const Navbar = () => {
               onClick={() => scrollToSection('news')}
               className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors"
             >
-              <News size={18} />
+              <Newspaper size={18} />
               <span>News & Collaborations</span>
             </button>
             <button 
