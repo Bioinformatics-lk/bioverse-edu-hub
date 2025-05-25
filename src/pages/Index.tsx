@@ -1,6 +1,6 @@
 
 import Navbar from '@/components/Navbar';
-import DNAHero from '@/components/DNAHero';
+import BiotechHero from '@/components/BiotechHero';
 import Courses from '@/components/Courses';
 import News from '@/components/News';
 import Recommendations from '@/components/Recommendations';
@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <DNAHero />
+      <BiotechHero />
       <Courses />
       <News />
       <Recommendations />

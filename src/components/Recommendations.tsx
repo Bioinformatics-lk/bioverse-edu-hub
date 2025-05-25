@@ -8,35 +8,39 @@ const Recommendations = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Dr. Sarah Chen",
       image: "👩‍🔬",
-      testimonial: "The bioinformatics courses here completely transformed my career. The hands-on approach and expert instruction made complex concepts accessible and practical.",
-      role: "PhD Student, Johns Hopkins University"
+      testimonial: "The AI-driven drug discovery program completely revolutionized my research approach. The hands-on pipeline training and expert mentorship exceeded all expectations.",
+      role: "Senior Research Scientist, Pfizer",
+      specialty: "AI Drug Discovery"
     },
     {
-      name: "Dr. Rajesh Patel",
+      name: "Dr. Rajesh Kumar",
       image: "👨‍💼",
-      testimonial: "As a pharmaceutical researcher, the molecular docking course provided exactly the skills I needed. The quality of instruction is exceptional.",
-      role: "Senior Scientist, Pfizer"
+      testimonial: "The molecular docking course provided cutting-edge techniques that directly improved our pharmaceutical development pipeline. World-class instruction with real-world applications.",
+      role: "Lead Bioinformatician, Novartis",
+      specialty: "Molecular Modeling"
     },
     {
-      name: "Maria Garcia",
+      name: "Dr. Maria Santos",
       image: "👩‍💻",
-      testimonial: "The AI and ML in Drug Discovery course opened up new possibilities in my research. The instructors are world-class and truly passionate about teaching.",
-      role: "Bioinformatics Analyst, Roche"
+      testimonial: "From quantum biology to machine learning applications - this program opened entirely new research dimensions. The instructors are pioneers in computational biology.",
+      role: "Principal Investigator, MIT",
+      specialty: "Computational Biology"
     },
     {
-      name: "David Chen",
+      name: "Dr. James Wilson",
       image: "👨‍🎓",
-      testimonial: "From complete beginner to confident practitioner - these courses provided the perfect pathway into bioinformatics. Highly recommended!",
-      role: "Graduate Student, MIT"
+      testimonial: "The comprehensive bioinformatics pipeline training transformed me from student to industry professional. The career impact has been extraordinary.",
+      role: "Bioinformatics Director, Genentech",
+      specialty: "Systems Biology"
     }
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(timer);
   }, [testimonials.length]);
@@ -50,51 +54,82 @@ const Recommendations = () => {
   };
 
   return (
-    <section id="recommendations" className="py-20 bg-gradient-to-b from-secondary/20 to-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            Student Recommendations
+    <section id="recommendations" className="py-24 biotech-bg relative">
+      {/* Background Pipeline */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" viewBox="0 0 1200 600">
+          <defs>
+            <radialGradient id="testimonialGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#00ffff" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#ff00ff" stopOpacity="0.1" />
+            </radialGradient>
+          </defs>
+          <circle cx="600" cy="300" r="200" fill="url(#testimonialGlow)" className="animate-pulse" />
+        </svg>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <span className="neon-green">Success</span>{' '}
+            <span className="neon-text">Stories</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Hear from our successful graduates who are making an impact in bioinformatics worldwide
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Hear from our graduates who are pioneering the future of bioinformatics and computational biology worldwide
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="glass-effect border-0 shadow-xl">
-            <CardContent className="p-8 md:p-12">
+        <div className="max-w-5xl mx-auto">
+          <Card className="glass-card neon-border card-hover">
+            <CardContent className="p-12 md:p-16">
               <div className="text-center">
-                <div className="text-6xl mb-6">
+                <div className="text-8xl mb-8 float-animation">
                   {testimonials[currentTestimonial].image}
                 </div>
-                <blockquote className="text-xl md:text-2xl leading-relaxed mb-6 italic">
+                
+                <blockquote className="text-2xl md:text-3xl leading-relaxed mb-8 italic text-gray-300">
                   "{testimonials[currentTestimonial].testimonial}"
                 </blockquote>
-                <div className="mb-6">
-                  <h4 className="font-semibold text-lg">
+                
+                <div className="mb-8">
+                  <h4 className="font-semibold text-xl neon-text mb-2">
                     {testimonials[currentTestimonial].name}
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-gray-300 mb-2">
                     {testimonials[currentTestimonial].role}
                   </p>
+                  <span className="text-sm bg-cyan-500/20 text-cyan-300 px-4 py-2 rounded-full border border-cyan-400/30">
+                    {testimonials[currentTestimonial].specialty}
+                  </span>
                 </div>
                 
-                <div className="flex justify-center space-x-4 mb-6">
-                  <Button variant="outline" size="sm" onClick={prevTestimonial}>
+                <div className="flex justify-center space-x-4 mb-8">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={prevTestimonial}
+                    className="glass-dark border-cyan-400/30 text-cyan-300 hover:text-cyan-200 w-12 h-12 rounded-full"
+                  >
                     ←
                   </Button>
-                  <Button variant="outline" size="sm" onClick={nextTestimonial}>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={nextTestimonial}
+                    className="glass-dark border-cyan-400/30 text-cyan-300 hover:text-cyan-200 w-12 h-12 rounded-full"
+                  >
                     →
                   </Button>
                 </div>
 
-                <div className="flex justify-center space-x-2">
+                <div className="flex justify-center space-x-3">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentTestimonial ? 'bg-primary' : 'bg-muted'
+                      className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                        index === currentTestimonial 
+                          ? 'bg-cyan-400 shadow-lg shadow-cyan-400/50' 
+                          : 'bg-gray-600 hover:bg-gray-500'
                       }`}
                       onClick={() => setCurrentTestimonial(index)}
                     />
