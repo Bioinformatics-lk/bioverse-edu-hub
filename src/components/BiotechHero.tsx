@@ -12,55 +12,67 @@ const BiotechHero = () => {
 
   return (
     <section id="home" className="min-h-screen biotech-bg molecule-pattern flex items-center justify-center relative overflow-hidden">
-      {/* Floating Molecular Elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-cyan-400 rounded-full float-animation pulse-glow"></div>
-        <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-purple-400 rounded-full float-animation pulse-glow" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-5 h-5 bg-green-400 rounded-full float-animation pulse-glow" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-cyan-300 rounded-full float-animation pulse-glow" style={{animationDelay: '3s'}}></div>
+      {/* Enhanced DNA and Molecular Background */}
+      <div className="absolute inset-0 opacity-20">
+        {/* DNA Helix Strands */}
+        <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-cyan-400 rounded-full float-animation pulse-glow"></div>
+        <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-purple-400 rounded-full float-animation pulse-glow" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-10 h-10 bg-green-400 rounded-full float-animation pulse-glow" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 right-1/3 w-4 h-4 bg-cyan-300 rounded-full float-animation pulse-glow" style={{animationDelay: '3s'}}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-7 h-7 bg-purple-300 rounded-full float-animation pulse-glow" style={{animationDelay: '4s'}}></div>
       </div>
 
-      {/* Pipeline Connection Lines */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Enhanced Pipeline Connection Lines with DNA-like curves */}
+      <div className="absolute inset-0 opacity-15">
         <svg className="w-full h-full" viewBox="0 0 1200 800">
           <defs>
-            <linearGradient id="pipelineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#00ffff" stopOpacity="0.6" />
-              <stop offset="50%" stopColor="#00ff99" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#ff00ff" stopOpacity="0.6" />
+            <linearGradient id="dnaGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#00ffff" stopOpacity="0.8" />
+              <stop offset="25%" stopColor="#00ff99" stopOpacity="0.6" />
+              <stop offset="50%" stopColor="#ff00ff" stopOpacity="0.8" />
+              <stop offset="75%" stopColor="#00ff99" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#00ffff" stopOpacity="0.8" />
             </linearGradient>
           </defs>
+          {/* DNA Double Helix Pattern */}
           <path
-            d="M100,400 Q300,200 600,300 T1100,400"
-            stroke="url(#pipelineGradient)"
-            strokeWidth="2"
+            d="M100,200 Q300,100 500,200 T900,200 Q1100,100 1200,200"
+            stroke="url(#dnaGradient)"
+            strokeWidth="3"
             fill="none"
             className="animate-pulse"
           />
           <path
-            d="M200,600 Q400,400 700,500 T1000,600"
-            stroke="url(#pipelineGradient)"
-            strokeWidth="2"
+            d="M100,600 Q300,700 500,600 T900,600 Q1100,700 1200,600"
+            stroke="url(#dnaGradient)"
+            strokeWidth="3"
             fill="none"
             className="animate-pulse"
             style={{animationDelay: '1s'}}
+          />
+          {/* Connecting base pairs */}
+          <path
+            d="M200,200 L200,600 M400,200 L400,600 M600,200 L600,600 M800,200 L800,600 M1000,200 L1000,600"
+            stroke="url(#dnaGradient)"
+            strokeWidth="1"
+            fill="none"
+            className="animate-pulse"
+            style={{animationDelay: '2s'}}
           />
         </svg>
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-            <span className="neon-text">Empowering the Next</span>
-            <br />
-            <span className="neon-purple">Generation of</span>
-            <br />
-            <span className="neon-green">Bioinformatics</span>
-            <br />
-            <span className="text-white">Professionals</span>
+          <h1 className="text-7xl md:text-9xl font-bold mb-4 leading-tight">
+            <span className="neon-text">Bioinformatics.lk</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-2xl md:text-3xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+            Empowering the Next Generation of Bioinformatics Professionals
+          </h2>
+
+          <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
             Advancing bioinformatics education through cutting-edge AI-driven discovery pipelines, 
             molecular modeling, and next-generation computational biology programs.
           </p>
