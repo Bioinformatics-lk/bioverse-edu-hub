@@ -46,18 +46,19 @@ const ResourcePersons = () => {
 
   return (
     <section id="resource-persons" className="py-24 animated-bg relative">
-      {/* Animated Bubbles */}
+      {/* Enhanced Animated Bubbles */}
       <div className="absolute inset-0">
-        <div className="floating-bubble bubble-green w-20 h-20 top-20 left-20" style={{animationDelay: '0s'}}></div>
-        <div className="floating-bubble bubble-purple w-24 h-24 bottom-20 right-20" style={{animationDelay: '2s'}}></div>
-        <div className="floating-bubble bubble-pink w-18 h-18 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style={{animationDelay: '4s'}}></div>
+        <div className="floating-bubble bubble-green w-28 h-28 top-10 left-10" style={{animationDelay: '0s'}}></div>
+        <div className="floating-bubble bubble-purple w-36 h-36 bottom-10 right-10" style={{animationDelay: '2s'}}></div>
+        <div className="floating-bubble bubble-pink w-24 h-24 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style={{animationDelay: '4s'}}></div>
+        <div className="floating-bubble bubble-blue w-20 h-20 top-1/4 right-1/4" style={{animationDelay: '6s'}}></div>
+        <div className="floating-bubble bubble-green w-32 h-32 bottom-1/3 left-1/4" style={{animationDelay: '8s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-green-600">Resource</span>{' '}
-            <span className="text-purple-600">Persons</span>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 rainbow-text">
+            Resource Persons
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Meet our distinguished faculty and research experts driving innovation in bioinformatics education
@@ -73,7 +74,7 @@ const ResourcePersons = () => {
             >
               <CardHeader className="pb-4">
                 <div className="text-6xl mb-4">{person.image}</div>
-                <CardTitle className="text-xl mb-2 text-slate-800">{person.name}</CardTitle>
+                <CardTitle className="text-xl mb-2 rainbow-text">{person.name}</CardTitle>
                 <div className={`text-sm font-medium px-3 py-1 rounded-full border inline-block ${getQualificationColor(person.colorTheme)}`}>
                   {person.qualification}
                 </div>
