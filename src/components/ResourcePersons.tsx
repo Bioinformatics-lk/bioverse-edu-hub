@@ -8,49 +8,58 @@ const ResourcePersons = () => {
       qualification: "PhD in Bioinformatics",
       bio: "Leading expert in computational biology and bioinformatics with extensive research in molecular modeling and AI-driven drug discovery.",
       image: "👨‍🔬", // Placeholder emoji
-      neonColor: "cyan"
+      colorTheme: "blue"
     },
     {
       name: "Mr. Saumya Poorni",
       qualification: "PhD reading in Aquaculture",
       bio: "Specialized in aquaculture biotechnology and marine bioinformatics with focus on sustainable aquaculture practices and genetic analysis.",
       image: "👨‍🎓", // Placeholder emoji
-      neonColor: "green"
+      colorTheme: "green"
     },
     {
       name: "Mr. Anuththara Gamage",
       qualification: "B.Sc Honours, Research Scientist at S.S.C",
       bio: "Research scientist with expertise in seed biotechnology, plant genetics, and agricultural bioinformatics at Standard Seed Corporation.",
       image: "👨‍💼", // Placeholder emoji
-      neonColor: "purple"
+      colorTheme: "purple"
     }
   ];
 
-  const getNeonBorder = (color: string) => {
+  const getAccentBorder = (color: string) => {
     switch (color) {
-      case 'cyan': return 'border-cyan-400/30 hover:border-cyan-400/60';
-      case 'green': return 'border-green-400/30 hover:border-green-400/60';
-      case 'purple': return 'border-purple-400/30 hover:border-purple-400/60';
-      default: return 'border-cyan-400/30 hover:border-cyan-400/60';
+      case 'blue': return 'border-blue-200 hover:border-blue-300';
+      case 'green': return 'border-green-200 hover:border-green-300';
+      case 'purple': return 'border-purple-200 hover:border-purple-300';
+      default: return 'border-blue-200 hover:border-blue-300';
+    }
+  };
+
+  const getQualificationColor = (color: string) => {
+    switch (color) {
+      case 'blue': return 'border-blue-200 text-blue-700 bg-blue-50';
+      case 'green': return 'border-green-200 text-green-700 bg-green-50';
+      case 'purple': return 'border-purple-200 text-purple-700 bg-purple-50';
+      default: return 'border-blue-200 text-blue-700 bg-blue-50';
     }
   };
 
   return (
-    <section id="resource-persons" className="py-24 biotech-bg relative">
+    <section id="resource-persons" className="py-24 light-biotech-bg relative">
       {/* Molecular structure background */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-cyan-400 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-400 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-green-400 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-400 rounded-full blur-3xl color-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-400 rounded-full blur-3xl color-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-green-400 rounded-full blur-3xl color-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="neon-green">Resource</span>{' '}
-            <span className="neon-purple">Persons</span>
+            <span className="text-green-600">Resource</span>{' '}
+            <span className="text-purple-600">Persons</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Meet our distinguished faculty and research experts driving innovation in bioinformatics education
           </p>
         </div>
@@ -59,22 +68,18 @@ const ResourcePersons = () => {
           {resourcePersons.map((person, index) => (
             <Card 
               key={index} 
-              className={`glass-card ${getNeonBorder(person.neonColor)} card-hover transition-all duration-500 text-center`}
+              className={`glass-card ${getAccentBorder(person.colorTheme)} card-hover transition-all duration-500 text-center`}
               style={{animationDelay: `${index * 0.2}s`}}
             >
               <CardHeader className="pb-4">
                 <div className="text-6xl mb-4">{person.image}</div>
-                <CardTitle className="text-xl mb-2 text-white">{person.name}</CardTitle>
-                <div className={`text-sm font-medium px-3 py-1 rounded-full border inline-block ${
-                  person.neonColor === 'cyan' ? 'border-cyan-400/30 text-cyan-300' :
-                  person.neonColor === 'green' ? 'border-green-400/30 text-green-300' :
-                  'border-purple-400/30 text-purple-300'
-                }`}>
+                <CardTitle className="text-xl mb-2 text-gray-800">{person.name}</CardTitle>
+                <div className={`text-sm font-medium px-3 py-1 rounded-full border inline-block ${getQualificationColor(person.colorTheme)}`}>
                   {person.qualification}
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-300 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   {person.bio}
                 </p>
               </CardContent>

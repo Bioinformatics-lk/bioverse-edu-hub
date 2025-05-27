@@ -7,70 +7,70 @@ const ResearchEcosystem = () => {
       name: "University of Peradeniya, Faculty of Agriculture",
       type: "Academia",
       description: "Leading agricultural research and biotechnology innovation in Sri Lanka",
-      neonColor: "cyan"
+      colorTheme: "blue"
     },
     {
       name: "Standard Seed Corporation, Delaware, Wilmington, USA",
       type: "Industry",
       description: "International agricultural biotechnology and seed development",
-      neonColor: "green"
+      colorTheme: "green"
     },
     {
       name: "Institute of Scientific Informatics",
       type: "Education and Research",
       description: "Advanced computational biology and bioinformatics research",
-      neonColor: "purple"
+      colorTheme: "purple"
     },
     {
       name: "Global Chemistry USA",
       type: "Open Source",
       description: "Open-source chemical informatics and molecular modeling platforms",
-      neonColor: "cyan"
+      colorTheme: "blue"
     },
     {
       name: "Chemo-Informatics Academy, Nigeria",
       type: "Education and Research",
       description: "Chemical informatics education and drug discovery research",
-      neonColor: "green"
+      colorTheme: "green"
     }
   ];
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'Academia': return 'border-cyan-400/30 text-cyan-300';
-      case 'Industry': return 'border-green-400/30 text-green-300';
-      case 'Education and Research': return 'border-purple-400/30 text-purple-300';
-      case 'Open Source': return 'border-yellow-400/30 text-yellow-300';
-      default: return 'border-gray-400/30 text-gray-300';
+      case 'Academia': return 'border-blue-200 text-blue-700 bg-blue-50';
+      case 'Industry': return 'border-green-200 text-green-700 bg-green-50';
+      case 'Education and Research': return 'border-purple-200 text-purple-700 bg-purple-50';
+      case 'Open Source': return 'border-yellow-200 text-yellow-700 bg-yellow-50';
+      default: return 'border-gray-200 text-gray-700 bg-gray-50';
     }
   };
 
   return (
-    <section id="research-ecosystem" className="py-24 biotech-bg relative">
-      {/* Background molecular network */}
+    <section id="research-ecosystem" className="py-24 light-biotech-bg relative">
+      {/* Background network visualization */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1200 600">
           <defs>
-            <linearGradient id="ecosystemGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00ffff" stopOpacity="0.6" />
-              <stop offset="50%" stopColor="#00ff99" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#ff00ff" stopOpacity="0.6" />
+            <linearGradient id="lightEcosystemGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="#10b981" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.4" />
             </linearGradient>
           </defs>
           {/* Network connections */}
           <path
             d="M200,150 L400,300 L600,150 L800,300 L1000,150"
-            stroke="url(#ecosystemGradient)"
+            stroke="url(#lightEcosystemGradient)"
             strokeWidth="2"
             fill="none"
-            className="animate-pulse"
+            className="gradient-animation"
           />
           <path
             d="M200,450 L400,300 L600,450 L800,300 L1000,450"
-            stroke="url(#ecosystemGradient)"
+            stroke="url(#lightEcosystemGradient)"
             strokeWidth="2"
             fill="none"
-            className="animate-pulse"
+            className="gradient-animation"
             style={{animationDelay: '1s'}}
           />
         </svg>
@@ -79,10 +79,10 @@ const ResearchEcosystem = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="neon-text">Research</span>{' '}
-            <span className="neon-green">Ecosystem</span>
+            <span className="color-accent-text">Research</span>{' '}
+            <span className="text-green-600">Ecosystem</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Our global network of academic institutions, industry partners, and research organizations
           </p>
         </div>
@@ -91,7 +91,7 @@ const ResearchEcosystem = () => {
           {institutions.map((institution, index) => (
             <Card 
               key={index} 
-              className="glass-card neon-border card-hover transition-all duration-500"
+              className="glass-card border-gray-200 hover:border-blue-300 card-hover transition-all duration-500"
               style={{animationDelay: `${index * 0.1}s`}}
             >
               <CardHeader className="pb-4">
@@ -100,10 +100,10 @@ const ResearchEcosystem = () => {
                     {institution.type}
                   </span>
                 </div>
-                <CardTitle className="text-xl mb-3 text-white leading-tight">{institution.name}</CardTitle>
+                <CardTitle className="text-xl mb-3 text-gray-800 leading-tight">{institution.name}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {institution.description}
                 </p>
               </CardContent>
