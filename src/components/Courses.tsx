@@ -50,10 +50,10 @@ const Courses = () => {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Beginner': return 'bg-green-100 text-green-700 border-green-200';
-      case 'Intermediate': return 'bg-blue-100 text-blue-700 border-blue-200';
-      case 'Advanced': return 'bg-purple-100 text-purple-700 border-purple-200';
-      default: return 'bg-gray-100 text-gray-700 border-gray-200';
+      case 'Beginner': return 'bg-green-50 text-green-700 border-green-200';
+      case 'Intermediate': return 'bg-blue-50 text-blue-700 border-blue-200';
+      case 'Advanced': return 'bg-purple-50 text-purple-700 border-purple-200';
+      default: return 'bg-slate-50 text-slate-700 border-slate-200';
     }
   };
 
@@ -67,9 +67,14 @@ const Courses = () => {
   };
 
   return (
-    <section id="courses" className="py-24 light-biotech-bg relative">
-      {/* Subtle Pipeline Background */}
-      <div className="absolute inset-0 opacity-10 subtle-pattern"></div>
+    <section id="courses" className="py-24 animated-bg relative">
+      {/* Animated Bubbles */}
+      <div className="absolute inset-0">
+        <div className="floating-bubble bubble-green w-16 h-16 top-20 left-20" style={{animationDelay: '1s'}}></div>
+        <div className="floating-bubble bubble-purple w-20 h-20 bottom-40 right-32" style={{animationDelay: '3s'}}></div>
+        <div className="floating-bubble bubble-blue w-14 h-14 top-1/2 left-32" style={{animationDelay: '5s'}}></div>
+        <div className="floating-bubble bubble-pink w-18 h-18 bottom-20 left-1/4" style={{animationDelay: '7s'}}></div>
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
@@ -77,7 +82,7 @@ const Courses = () => {
             <span className="color-accent-text">Discovery</span>{' '}
             <span className="text-green-600">Pipeline</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Navigate through our comprehensive curriculum designed to transform you from 
             beginner to advanced bioinformatics professional
           </p>
@@ -95,14 +100,14 @@ const Courses = () => {
                   <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getLevelColor(course.level)}`}>
                     {course.level}
                   </span>
-                  <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full border border-gray-200">
+                  <span className="text-sm text-slate-500 bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
                     {course.duration}
                   </span>
                 </div>
-                <CardTitle className="text-xl mb-3 text-gray-800">{course.title}</CardTitle>
+                <CardTitle className="text-xl mb-3 text-slate-800">{course.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-slate-600 mb-6 leading-relaxed">
                   {course.description}
                 </p>
                 <Button className="w-full professional-button">
