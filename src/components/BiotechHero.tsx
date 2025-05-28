@@ -1,17 +1,11 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 const BiotechHero = () => {
-  const scrollToCourses = () => {
-    const element = document.getElementById('courses');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+  const heroText = "Empowering the Next Generation of Bioinformatics Professionals";
+  
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden animated-bg">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden animated-bg">
       {/* Animated Bubbles */}
       <div className="absolute inset-0">
         <div className="floating-bubble bubble-green w-20 h-20 top-20 left-20" style={{animationDelay: '0s'}}></div>
@@ -65,30 +59,35 @@ const BiotechHero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-12 leading-tight">
-            <span className="block text-slate-800">
-              Empowering the{' '}
-              <span className="color-accent-text font-medium">Next Generation</span>
-            </span>
-            <span className="block text-slate-800 mt-2">
-              of{' '}
-              <span className="text-green-600 font-medium">Bioinformatics</span>{' '}
-              <span className="text-purple-600 font-medium">Professionals</span>
-            </span>
-          </h1>
-
-          <div className="flex justify-center">
-            <Button 
-              size="lg" 
-              className="professional-button text-lg px-10 py-4 font-light"
-              onClick={scrollToCourses}
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+        <h1 className="text-7xl md:text-8xl font-bold mb-8 leading-tight">
+          {heroText.split('').map((char, index) => (
+            <span 
+              key={index}
+              className="inline-block color-accent-text"
+              style={{
+                animationDelay: `${index * 0.1}s`
+              }}
             >
-              Explore Courses
-              <ArrowRight className="ml-2" size={20} />
-            </Button>
-          </div>
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
+        </h1>
+        
+        <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+          Join Sri Lanka's premier bioinformatics education platform. Master cutting-edge computational biology techniques, 
+          from molecular modeling to AI-driven drug discovery, guided by world-class researchers and industry experts.
+        </p>
+        
+        <div className="flex justify-center">
+          <Button 
+            size="lg" 
+            className="professional-button text-lg px-10 py-4 font-light"
+            onClick={scrollToCourses}
+          >
+            Explore Courses
+            <ArrowRight className="ml-2" size={20} />
+          </Button>
         </div>
       </div>
     </section>
