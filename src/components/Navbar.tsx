@@ -1,34 +1,11 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Home, Book, Newspaper, Users, User, LogOut } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
-import { User as SupabaseUser } from '@supabase/supabase-js';
-import AuthModal from './AuthModal';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Home, Book, Newspaper, Users, User } from 'lucide-react';
 
 const Navbar = () => {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [user, setUser] = useState<SupabaseUser | null>(null);
-
-  useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setUser(session?.user ?? null);
-      }
-    );
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-  };
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -42,12 +19,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
-              <img 
-                src="/lovable-uploads/6ed14a7d-429b-4411-ad9e-47a06822b24a.png" 
-                alt="Bioinformatics.lk Logo"
-                className="w-full h-full object-cover"
-              />
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-lg">B</span>
             </div>
             <span className="text-2xl font-bold color-accent-text">Bioinformatics.lk</span>
           </div>
@@ -89,37 +62,29 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="flex items-center space-x-4">
-            {user ? (
-              <div className="flex items-center space-x-4">
-                <span className="text-slate-700">Welcome, {user.email}</span>
-                <Button 
-                  onClick={handleLogout}
-                  variant="outline"
-                  size="sm"
-                >
-                  <LogOut size={18} className="mr-2" />
-                  Logout
-                </Button>
-              </div>
-            ) : (
-              <Button 
-                className="professional-button"
-                onClick={() => setIsAuthModalOpen(true)}
-              >
+          <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+            <DialogTrigger asChild>
+              <Button className="professional-button">
                 <User size={18} className="mr-2" />
                 Login
               </Button>
-            )}
-          </div>
+            </DialogTrigger>
+            <DialogContent className="glass-light border-slate-200">
+              <DialogHeader>
+                <DialogTitle className="color-accent-text">Login to Bioinformatics.lk</DialogTitle>
+              </DialogHeader>
+              <div className="text-center py-8">
+                <p className="text-slate-600 mb-4">
+                  Authentication with Supabase will be available soon.
+                </p>
+                <p className="text-sm text-slate-500">
+                  Connect your Lovable project to Supabase to enable login functionality.
+                </p>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
-
-      <AuthModal 
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-        onAuthSuccess={() => setIsAuthModalOpen(false)}
-      />
     </nav>
   );
 };
