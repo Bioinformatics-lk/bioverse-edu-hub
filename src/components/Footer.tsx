@@ -1,13 +1,13 @@
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900/95 border-t border-slate-700/50 text-white py-16 relative overflow-hidden">
+    <footer className="bg-slate-900/98 border-t border-slate-700/50 text-white py-16 relative overflow-hidden">
       {/* Enhanced Animated Bubbles */}
       <div className="absolute inset-0">
         <div className="floating-bubble bubble-green w-16 h-16 top-10 left-10" style={{animationDelay: '0s'}}></div>
-        <div className="floating-bubble bubble-purple w-20 h-20 bottom-20 right-20" style={{animationDelay: '2s'}}></div>
-        <div className="floating-bubble bubble-blue w-14 h-14 top-1/2 left-1/3" style={{animationDelay: '4s'}}></div>
-        <div className="floating-bubble bubble-pink w-18 h-18 bottom-1/3 right-1/4" style={{animationDelay: '6s'}}></div>
+        <div className="floating-bubble bubble-purple w-20 h-20 bottom-20 right-20" style={{animationDelay: '4s'}}></div>
+        <div className="floating-bubble bubble-blue w-14 h-14 top-1/2 left-1/3" style={{animationDelay: '8s'}}></div>
+        <div className="floating-bubble bubble-pink w-18 h-18 bottom-1/3 right-1/4" style={{animationDelay: '12s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-6 color-accent-text text-lg">Research Resources</h4>
+            <h4 className="font-semibold mb-6 rainbow-text text-lg">Research Resources</h4>
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="hover:text-cyan-400 transition-colors cursor-pointer font-medium">Documentation Portal</li>
               <li className="hover:text-cyan-400 transition-colors cursor-pointer font-medium">Tutorial Library</li>
@@ -49,16 +49,25 @@ const Footer = () => {
             <h4 className="font-semibold mb-6 rainbow-text text-lg">Innovation Network</h4>
             <ul className="space-y-3 text-sm">
               <li className="hover:text-cyan-400 transition-colors cursor-pointer">
-                <span className="color-accent-text font-semibold">LinkedIn Research</span>
+                <span className="rainbow-text font-semibold">Discovery Pipeline</span>
               </li>
               <li className="hover:text-cyan-400 transition-colors cursor-pointer">
-                <span className="color-accent-text font-semibold">ResearchGate</span>
+                <span className="rainbow-text font-semibold">Research Ecosystem</span>
               </li>
               <li className="hover:text-cyan-400 transition-colors cursor-pointer">
-                <span className="color-accent-text font-semibold">Twitter Updates</span>
+                <span className="rainbow-text font-semibold">Drug Discovery Partnerships</span>
               </li>
               <li className="hover:text-cyan-400 transition-colors cursor-pointer">
-                <span className="color-accent-text font-semibold">YouTube Channel</span>
+                <span className="rainbow-text font-semibold">Resource Persons</span>
+              </li>
+              <li className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <span className="rainbow-text font-semibold">Innovation Network</span>
+              </li>
+              <li className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <span className="rainbow-text font-semibold">Success Stories</span>
+              </li>
+              <li className="hover:text-cyan-400 transition-colors cursor-pointer">
+                <span className="rainbow-text font-semibold">Connect With Us</span>
               </li>
             </ul>
           </div>

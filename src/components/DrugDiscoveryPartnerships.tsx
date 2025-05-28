@@ -39,37 +39,37 @@ const DrugDiscoveryPartnerships = () => {
     <section id="partnerships" className="py-24 animated-bg relative">
       {/* Enhanced Animated Bubbles */}
       <div className="absolute inset-0">
-        <div className="floating-bubble bubble-pink w-24 h-24 top-24 left-32" style={{animationDelay: '1s'}}></div>
-        <div className="floating-bubble bubble-green w-20 h-20 bottom-40 right-24" style={{animationDelay: '3s'}}></div>
-        <div className="floating-bubble bubble-blue w-28 h-28 top-1/2 left-1/4" style={{animationDelay: '5s'}}></div>
-        <div className="floating-bubble bubble-purple w-32 h-32 top-1/3 right-1/3" style={{animationDelay: '7s'}}></div>
-        <div className="floating-bubble bubble-pink w-18 h-18 bottom-1/4 left-1/5" style={{animationDelay: '9s'}}></div>
+        <div className="floating-bubble bubble-pink w-24 h-24 top-24 left-32" style={{animationDelay: '2s'}}></div>
+        <div className="floating-bubble bubble-green w-20 h-20 bottom-40 right-24" style={{animationDelay: '6s'}}></div>
+        <div className="floating-bubble bubble-blue w-28 h-28 top-1/2 left-1/4" style={{animationDelay: '10s'}}></div>
+        <div className="floating-bubble bubble-purple w-32 h-32 top-1/3 right-1/3" style={{animationDelay: '14s'}}></div>
+        <div className="floating-bubble bubble-pink w-18 h-18 bottom-1/4 left-1/5" style={{animationDelay: '18s'}}></div>
       </div>
 
       {/* Enhanced pipeline-style background */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-20">
         <svg className="w-full h-full" viewBox="0 0 1200 800">
           <defs>
             <linearGradient id="pipelineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-              <stop offset="25%" stopColor="#10b981" stopOpacity="0.6" />
-              <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.8" />
-              <stop offset="75%" stopColor="#10b981" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
+              <stop offset="25%" stopColor="#10b981" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.4" />
+              <stop offset="75%" stopColor="#10b981" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.4" />
             </linearGradient>
           </defs>
           <path
             d="M0,400 Q200,200 400,400 T800,400 Q1000,200 1200,400"
             stroke="url(#pipelineGradient)"
-            strokeWidth="4"
+            strokeWidth="3"
             fill="none"
             className="animate-pulse flowing-line"
           />
-          <circle cx="200" cy="300" r="8" fill="#3b82f6" className="animate-pulse floating-bubble" />
-          <circle cx="400" cy="400" r="8" fill="#10b981" className="animate-pulse floating-bubble" style={{animationDelay: '0.5s'}} />
-          <circle cx="600" cy="300" r="8" fill="#8b5cf6" className="animate-pulse floating-bubble" style={{animationDelay: '1s'}} />
-          <circle cx="800" cy="400" r="8" fill="#3b82f6" className="animate-pulse floating-bubble" style={{animationDelay: '1.5s'}} />
-          <circle cx="1000" cy="300" r="8" fill="#10b981" className="animate-pulse floating-bubble" style={{animationDelay: '2s'}} />
+          <circle cx="200" cy="300" r="6" fill="#3b82f6" className="animate-pulse floating-bubble" />
+          <circle cx="400" cy="400" r="6" fill="#10b981" className="animate-pulse floating-bubble" style={{animationDelay: '1s'}} />
+          <circle cx="600" cy="300" r="6" fill="#8b5cf6" className="animate-pulse floating-bubble" style={{animationDelay: '2s'}} />
+          <circle cx="800" cy="400" r="6" fill="#3b82f6" className="animate-pulse floating-bubble" style={{animationDelay: '3s'}} />
+          <circle cx="1000" cy="300" r="6" fill="#10b981" className="animate-pulse floating-bubble" style={{animationDelay: '4s'}} />
         </svg>
       </div>
 
@@ -84,19 +84,19 @@ const DrugDiscoveryPartnerships = () => {
           </p>
         </div>
 
-        {/* Circular Partnership Arrangement */}
-        <div className="partnership-circle relative mb-16">
+        {/* Rectangular Partnership Arrangement */}
+        <div className="partnership-rectangle relative mb-16">
           {/* Center Logo */}
-          <div className="center-logo rainbow-text">
+          <div className="center-logo rainbow-text text-center">
             Bioinformatics.lk
           </div>
           
-          {/* Partnership Items arranged in circle */}
+          {/* Partnership Items arranged around rectangle */}
           {partnerships.map((partnership, index) => (
             <div key={index} className="partnership-item">
               <Card className="glass-card border-slate-200 hover:border-blue-300 card-hover transition-all duration-500 h-full">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm mb-1 rainbow-text leading-tight">{partnership.name}</CardTitle>
+                  <CardTitle className="text-xs mb-1 rainbow-text leading-tight">{partnership.name}</CardTitle>
                   <div className="color-accent-text text-xs font-medium">{partnership.department}</div>
                 </CardHeader>
                 <CardContent className="pt-0">
@@ -115,7 +115,7 @@ const DrugDiscoveryPartnerships = () => {
             <Card 
               key={`grid-${index}`} 
               className="glass-card border-slate-200 hover:border-blue-300 card-hover transition-all duration-500"
-              style={{animationDelay: `${index * 0.15}s`}}
+              style={{animationDelay: `${index * 0.2}s`}}
             >
               <CardHeader className="pb-4">
                 <CardTitle className="text-lg mb-2 rainbow-text leading-tight">{partnership.name}</CardTitle>
